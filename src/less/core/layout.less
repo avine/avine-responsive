@@ -1,0 +1,157 @@
+/* --- layout --- */
+
+body {
+  margin: 0;
+  background-color: @bg-color-base;
+}
+
+#avn-layout {
+  > header {
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: @header-height;
+    line-height: @header-height - @border-width;
+    border-bottom: @border-width solid @border-color;    
+    background-color: @bg-color-alt;
+
+    > * {
+      position: relative;
+      height: inherit;
+    }
+  }
+
+  > section {
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+    top: @header-height;
+
+    // Add this rule if you need to prevent margin collapsing.
+    /*border-top: 1px solid transparent;*/
+  }
+
+  > header > *,
+  > section {
+    margin: 0 auto; // center the header content and the main section
+    max-width: @screen-lg;
+  }
+
+  > section {
+    > article { // main content
+      padding: @layout-space;
+      overflow-x: auto;
+    }
+
+    > footer { // site footer
+      margin: 0 @layout-space @layout-space @layout-space;
+      padding-top: @layout-space;
+      border-top: @border-width solid @border-color;
+    }
+  }
+
+  > nav { // sidebar
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 2;
+    top: @header-height;
+    bottom: 0;
+    width: @nav-width;
+    border-right: 0px solid @border-color;
+
+    > * {
+      box-sizing: border-box;
+      position: relative;
+      overflow: auto;
+      padding: @layout-space;
+    }
+  }
+}
+
+@media (min-width: @screen-md) {
+  html, body {
+    height: 100%;
+  }
+
+  #avn-layout {
+    > nav > * {
+      max-height: 100%;
+    }
+
+    > section {
+      padding-left: @nav-width;
+    }
+  }
+}
+
+@media (min-width: @screen-lg) {
+  #avn-layout > nav {
+    right: 50%;
+    margin-right: (@screen-lg / 2 - @nav-width);
+  }
+}
+
+@media (max-width: (@screen-md - 1)) {
+  html,
+  #avn-layout > section > footer {
+    background-color: @bg-color-alt; // footer color
+  }
+
+  #avn-layout {
+    > section {
+      > article {
+        background-color: @bg-color-base; // main content color
+      }
+
+      > footer {
+        margin: 0;
+        padding: @layout-space;
+      }
+    }
+
+    > nav {
+      left: -@nav-width;
+      box-shadow: none;
+      border-right-width: @border-width;
+      background-color: @bg-color-base;
+      transition: left (@nav-delay / 2) ease-in, box-shadow (@nav-delay / 2) ease;
+
+      &:before {
+        content: "";
+        position: fixed;
+        z-index: 0;
+        top: @header-height;
+        right: 99999px;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        opacity: 0;
+        transition: right 0s linear (@nav-delay / 2), left (@nav-delay / 2) ease-in, opacity (@nav-delay / 2) ease-out;
+      }
+
+      > * {
+        height: 100%;
+      }
+    }
+
+    &.avn-nav-open > nav {
+      left: 0;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: left @nav-delay ease-out, box-shadow @nav-delay ease;
+
+      &:before {
+        right: 0;
+        left: @nav-width;
+        opacity: 0.5;
+        transition: left @nav-delay ease-out, opacity @nav-delay ease-in;
+      }
+    }
+  }
+
+  body.avn-nav-open {
+    overflow: hidden;
+  }
+}

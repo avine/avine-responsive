@@ -1,0 +1,37 @@
+{
+  "name": "responsive",
+  "version": "1.0.0",
+  "description": "Simple responsive front-end template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    
+    "folder:clean": "shx rm -rf dist/",
+    "folder:make": "shx mkdir -p dist/css dist/js dist/bundle && shx cp src/*.* dist/ && shx cp -r src/static dist/ && shx cp -r src/js dist/",
+    "folder": "npm run folder:clean -s && npm run folder:make -s",
+
+    "less": "lessc --autoprefix --source-map src/less/app.less dist/css/app.css",
+    "postless": "cleancss --source-map dist/css/app.css -o dist/css/app.min.css",
+
+    "dev": "npm run folder -s && npm run less -s",
+
+    "server": "http-server ./ -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avine/responsive.git"
+  },
+  "author": "avine <s.francel@avine.fr>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avine/responsive/issues"
+  },
+  "homepage": "https://github.com/avine/responsive#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0",
+    "less": "^2.7.2",
+    "less-plugin-autoprefix": "^1.5.1",
+    "less-plugin-clean-css": "^1.5.1",
+    "shx": "^0.2.2"
+  }
+}
