@@ -1,20 +1,15 @@
 {
   "name": "responsive",
-  "version": "1.0.0",
+  "version": "0.0.5",
   "description": "Simple responsive front-end template",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    
-    "folder:clean": "shx rm -rf dist/",
-    "folder:make": "shx mkdir -p dist/css dist/js dist/bundle && shx cp src/*.* dist/ && shx cp -r src/static dist/ && shx cp -r src/js dist/",
-    "folder": "npm run folder:clean -s && npm run folder:make -s",
-
+    "prefolder": "shx rm -rf dist/",
+    "folder": "shx mkdir -p dist/ && shx cp src/*.* dist/ && shx cp -r src/static dist/ && shx cp -r src/js dist/",
     "less": "lessc --autoprefix --source-map src/less/app.less dist/css/app.css",
     "postless": "cleancss --source-map dist/css/app.css -o dist/css/app.min.css",
-
-    "dev": "npm run folder -s && npm run less -s",
-
+    "build": "npm run folder -s && npm run less -s",
     "server": "http-server ./ -o"
   },
   "repository": {
