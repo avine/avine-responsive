@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <title>Logo</title>
+
+  <style>
+    #logo {
+      width: 211px;
+      height: 64px;
+      position: relative;
+      overflow: hidden;
+      background-color: #555;
+      cursor: pointer;
+      transition: width 0.5s ease-in-out;
+    }
+    #logo > * {
+      position: absolute;
+      top: 0;
+      width: 64px;
+      height: 64px;
+      background-size: 64px 64px;
+      /*animation: move 0.5s ease-in-out;*/
+      transition: left 0.5s ease-in-out;
+    }
+    #logo.anim {
+      width: 64px;
+    }
+    #logo.anim > * {
+      left: 0;
+    }
+    #a {
+      background-image: url("static/logo/A-128.png");
+      left: 0;
+      z-index: 4;
+    }
+    #v {
+      background-image: url("static/logo/V-128.png");
+      left: 15px;
+      z-index: 3;
+    }
+    #i {
+      background-image: url("static/logo/I-128.png");
+      left: 27px;
+      z-index: 5;
+    }
+    #n {
+      background-image: url("static/logo/N-128.png");
+      left: 87px;
+      z-index: 2;
+    }
+    #e {
+      background-image: url("static/logo/E-128.png");
+      left: 147px;
+      z-index: 1;
+    }
+    @keyframes move {
+      0% { top: -64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="logo">
+    <i id="a"></i>
+    <i id="v"></i>
+    <i id="i"></i>
+    <i id="n"></i>
+    <i id="e"></i>
+  </div>
+
+  <script>
+    document.querySelector('#logo').addEventListener('click', function () {
+      this.classList[this.classList.contains('anim') ? 'remove' : 'add']('anim');
+    })
+  </script>
+
+</body>
+</html>
