@@ -9,19 +9,14 @@
 
 @bg-color-base: #212121; // Grey 900
 @bg-color-alt: #191919;
-@bg-color-highlight: #5D4037; // Brown 700
 
 @border-color: #4E342E; // Brown 800
 
-@code-bg-color-rgba: rgba(0, 0, 0, 0.4);
-@code-bg-color-hex: #000;
-@code-bg-color-x: -1;
-
-@table-bg-hover: #3E2723; // Brown 900
+@dark-aside: #3E2723; // Brown 900
 
 // --- layout ---
 
-#avn-layout {
+#avn-layout-wrap {
   > header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
@@ -33,7 +28,7 @@
       border-width: 0 @border-width 0 0;
       border-style: solid;
       border-color: @border-color;
-      background-color: @table-bg-hover;
+      background-color: @dark-aside;
 
       @media (max-width: (@screen-md - 1)) {
         box-shadow: -10px 0 10px rgba(0, 0, 0, 0.125) inset;
@@ -55,16 +50,16 @@
 
 // --- menu ---
 
-#avn-menu {
-  .avn-toggle-nav {
+#avn-layout-menu {
+  .avn-layout-toggle-nav {
     background-image: url("../static/image/list-alt.svg");
   }
 
-  .avn-toggle-links {
+  .avn-layout-toggle-links {
     background-image: url("../static/image/down-alt.svg");
   }
 }
 
-#avn-search {
+#avn-layout-search {
   background-image: url("../static/image/find-alt.svg");
 }

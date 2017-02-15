@@ -5,7 +5,7 @@ body {
   background-color: @bg-color-base;
 }
 
-#avn-layout {
+#avn-layout-wrap {
   > header {
     box-sizing: border-box;
     position: fixed;
@@ -76,7 +76,7 @@ body {
     height: 100%;
   }
 
-  #avn-layout {
+  #avn-layout-wrap {
     > aside > nav {
       max-height: 100%;
     }
@@ -88,7 +88,7 @@ body {
 }
 
 @media (min-width: @screen-lg) {
-  #avn-layout > aside {
+  #avn-layout-wrap > aside {
     right: 50%;
     margin-right: (@screen-lg / 2 - @nav-width);
   }
@@ -96,11 +96,11 @@ body {
 
 @media (max-width: (@screen-md - 1)) {
   html,
-  #avn-layout > main > footer {
+  #avn-layout-wrap > main > footer {
     background-color: @bg-color-alt; // footer color
   }
 
-  #avn-layout {
+  #avn-layout-wrap {
     > main {
       > section {
         background-color: @bg-color-base; // main content color
@@ -137,7 +137,7 @@ body {
       }
     }
 
-    &.avn-nav-open > aside {
+    &.avn-layout-nav-open > aside {
       left: 0;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
       transition: left @nav-delay ease-out, box-shadow @nav-delay ease;
@@ -151,7 +151,7 @@ body {
     }
   }
 
-  body.avn-nav-open {
+  body.avn-layout-nav-open {
     overflow: hidden;
   }
 }

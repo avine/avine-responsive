@@ -1,6 +1,6 @@
 /* --- search --- */
 
-#avn-search {
+#avn-layout-search {
   position: absolute;
   top: 0;
   right: @menu-span;
@@ -134,20 +134,20 @@
         background-color: @bg-color-alt;
       }
 
-      &.search-separator {
+      &.avn-layout-search-separator {
         background: desaturate(@color-link, 30%);
         color: @bg-color-base;
         font-size: 1.1em;
       }
-
-      &.search-separator:first-letter {
-        text-transform: uppercase;
-      }
     }
+  }
+
+  &.avn-layout-search-open > article {
+    display: block;
   }
 }
 
-.search-result-detail {
+.avn-layout-search-detail {
   margin-left: 0.3em;
   font-size: 12px;
   color: @color-alt;

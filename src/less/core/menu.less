@@ -1,6 +1,6 @@
 /* --- menu --- */
 
-#avn-menu {
+#avn-layout-menu {
   padding: 0 @menu-span;
   font-size: @menu-font-size;
 
@@ -15,8 +15,8 @@
     color: @color-base;
   }
 
-  .avn-toggle-nav,
-  .avn-toggle-links {
+  .avn-layout-toggle-nav,
+  .avn-layout-toggle-links {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: @menu-icon-size;
@@ -25,18 +25,18 @@
     vertical-align: top;
   }
 
-  .avn-toggle-nav {
+  .avn-layout-toggle-nav {
     display: none;
     background-image: url("../static/image/list.svg");
   }
 
-  .avn-toggle-links {
+  .avn-layout-toggle-links {
     display: none;
     background-image: url("../static/image/down.svg");
   }
 }
 
-#avn-links {
+#avn-layout-links {
   font-size: 0; // remove the 4px space between inline-block elements
 
   a {
@@ -50,7 +50,7 @@
   }
 }
 
-.avn-brand-logo {
+.avn-layout-brand {
   height: @header-height - @border-width;
   vertical-align: top;
   font-size: 0;
@@ -63,22 +63,22 @@
 }
 
 @media (min-width: @screen-md) {
-  .avn-brand-logo ~  #avn-links > :first-child {
+  .avn-layout-brand ~  #avn-layout-links > :first-child {
     display: none; // hide the "Home" link when "Brand" link is available
   }
 }
 
 @media (max-width: (@screen-md - 1)) {
-  .avn-brand-logo {
+  .avn-layout-brand {
     display: none !important; // hide "Brand" link on small and x-small screen
   }
 
-  .avn-toggle-nav,
-  .avn-toggle-links {
+  .avn-layout-toggle-nav,
+  .avn-layout-toggle-links {
     display: inline-block !important;
   }
 
-  #avn-links {
+  #avn-layout-links {
     box-shadow: @header-dropdown-shadow;
     border-radius: @border-radius;
     border: @border-width solid @border-color;
@@ -99,7 +99,7 @@
     }
   }
 
-  body.avn-links-open #avn-links {
+  body.avn-layout-links-open #avn-layout-links {
     left: @menu-icon-size + 3 * @menu-span;
     opacity: @header-dropdown-opacity;
     transition: left 0s linear, opacity @nav-delay ease-out;

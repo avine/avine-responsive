@@ -10,7 +10,7 @@
     "less": "lessc --autoprefix --source-map src/less/app.less dist/css/app.css",
     "postless": "cleancss --source-map dist/css/app.css -o dist/css/app.min.css",
     "build": "npm run folder -s && npm run less -s",
-    "server": "http-server ./ -o"
+    "start": "http-server ./ -o"
   },
   "repository": {
     "type": "git",
