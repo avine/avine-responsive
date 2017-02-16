@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+  <title>Logo</title>
+
+  <style>
+    body {
+      margin: 0;
+      font: 16px normal Arial, Helvetica, sans-serif;
+    }
+    body > header {
+      height: 128px;
+      padding: 32px 0;
+      background-color: #673AB7;
+      overflow: hidden;
+    }
+    body > main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px;
+      line-height: 1.5em;
+    }
+
+    #logo {
+      position: relative;
+      margin: 0 auto;
+      width: 424px;
+      height: 128px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      cursor: pointer;
+      background-color: #7E57C2;
+      animation: logo-anim 10s ease infinite;
+    }
+    #logo > * {
+      position: absolute;
+      left: 0;
+      width: 128px;
+      height: 128px;
+      background-size: 640px 128px;
+      background-image: url("static/logo/avine-256.png");
+      animation-duration: inherit;
+      animation-timing-function: inherit;
+      animation-iteration-count: inherit;
+    }
+    #logo [data-char="a"] {
+      background-position: 0px 0px;
+      left: 0px;
+      z-index: 4;
+      animation-name: logo-anim-a;
+    }
+    #logo [data-char="v"] {
+      background-position: -128px 0px;
+      left: 32px;
+      z-index: 3;
+      animation-name: logo-anim-v;
+    }
+    #logo [data-char="i"] {
+      background-position: -256px 0px;
+      left: 56px;
+      z-index: 5;
+      animation-name: logo-anim-i;
+    }
+    #logo [data-char="n"] {
+      background-position: -384px 0px;
+      z-index: 2;
+      left: 176px;
+      animation-name: logo-anim-n;
+    }
+    #logo [data-char="e"] {
+      background-position: -512px 0px;
+      z-index: 1;
+      left: 296px;
+      animation-name: logo-anim-e;
+    }
+    
+    @keyframes logo-anim { 20% { width: 424px; } 40% { width: 128px; } 50% { transform: rotate(0deg); } 60% { width: 128px; transform: rotate(360deg); } 80% { width: 424px; } 100% { transform: rotate(360deg); } }
+    @keyframes logo-anim-a { 20% { opacity: 1; } 30% { opacity: 0.85; } 40% { opacity: 1; } 60% { opacity: 1; } 70% { opacity: 0.85; } 80% { opacity: 1; } }
+    @keyframes logo-anim-v { 20% { left: 32px; opacity: 1; } 30% { opacity: 0.85; } 40% { left: 0; opacity: 1; } 60% { left: 0; opacity: 1; } 70% { opacity: 0.85; } 80% { left: 32px; opacity: 1; } }
+    @keyframes logo-anim-i { 20% { left: 56px; opacity: 1; } 30% { opacity: 0.85; } 40% { left: 0; opacity: 1; } 60% { left: 0; opacity: 1; } 70% { opacity: 0.85; } 80% { left: 56px; opacity: 1; } }
+    @keyframes logo-anim-n { 20% { left: 176px; opacity: 1; } 30% { opacity: 0.85; } 40% { left: 0; opacity: 1; } 60% { left: 0; opacity: 1; } 70% { opacity: 0.85; } 80% { left: 176px; opacity: 1; } }
+    @keyframes logo-anim-e { 20% { left: 296px; opacity: 1; } 30% { opacity: 0.85; } 40% { left: 0; opacity: 1; } 60% { left: 0; opacity: 1; } 70% { opacity: 0.85; } 80% { left: 296px; opacity: 1; } }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+
+    <div id="logo">
+      <i data-char="a"></i>
+      <i data-char="v"></i>
+      <i data-char="i"></i>
+      <i data-char="n"></i>
+      <i data-char="e"></i>
+    </div>
+
+  </header>
+
+  <main>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  </main>
+
+</body>
+</html>

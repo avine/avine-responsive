@@ -13,50 +13,54 @@
       height: 64px;
       cursor: pointer;
       background-color: #555;
-      transition: width 0.5s ease-in-out;
+      animation: logo-anim 10s ease-in-out infinite;
     }
     #logo > * {
       position: absolute;
+      left: 0;
       width: 64px;
       height: 64px;
       background-size: 64px;
-      transition: left 0.5s ease-in-out;
-      /*animation: move 0.5s ease-in-out;*/
+      animation-duration: inherit;
+      animation-timing-function: inherit;
+      animation-iteration-count: inherit;
     }
     #logo [data-char="a"] {
       background-image: url("static/logo/A-128.png");
-      left: 0;
+      left: 0px;
       z-index: 4;
+      animation-name: logo-anim-a;
     }
     #logo [data-char="v"] {
       background-image: url("static/logo/V-128.png");
       left: 16px;
       z-index: 3;
+      animation-name: logo-anim-v;
     }
     #logo [data-char="i"] {
       background-image: url("static/logo/I-128.png");
       left: 28px;
       z-index: 5;
+      animation-name: logo-anim-i;
     }
     #logo [data-char="n"] {
       background-image: url("static/logo/N-128.png");
-      left: 88px;
       z-index: 2;
+      left: 88px;
+      animation-name: logo-anim-n;
     }
     #logo [data-char="e"] {
       background-image: url("static/logo/E-128.png");
-      left: 148px;
       z-index: 1;
+      left: 148px;
+      animation-name: logo-anim-e;
     }
-    #logo.anim {
-      width: 64px;
-    }
-    #logo.anim > * {
-      left: 0;
-    }
-    @keyframes move {
-      0% { top: -64px; }
-    }
+    @keyframes logo-anim { 20% { width: 212px; } 40% { width: 64px; } 60% { width: 64px; } 80% { width: 212px; } }
+    @keyframes logo-anim-a { }
+    @keyframes logo-anim-v { 20% { left: 16px; } 40% { left: 0; } 60% { left: 0; } 80% { left: 16px; } }
+    @keyframes logo-anim-i { 20% { left: 28px; } 40% { left: 0; } 60% { left: 0; } 80% { left: 28px; } }
+    @keyframes logo-anim-n { 20% { left: 88px; } 40% { left: 0; } 60% { left: 0; } 80% { left: 88px; } }
+    @keyframes logo-anim-e { 20% { left: 148px; } 40% { left: 0; } 60% { left: 0; } 80% { left: 148px; } }
   </style>
 </head>
 <body>
@@ -68,12 +72,5 @@
     <i data-char="n"></i>
     <i data-char="e"></i>
   </div>
-
-  <script>
-    document.querySelector('#logo').addEventListener('click', function () {
-      this.classList[this.classList.contains('anim') ? 'remove' : 'add']('anim');
-    })
-  </script>
-
 </body>
 </html>
