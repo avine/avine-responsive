@@ -1,2 +1,3 @@
-# responsive
-Simple responsive front-end template
+# avine-responsive
+
+Simple responsive front-end design
