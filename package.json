@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prefolder": "shx rm -rf dist/",
-    "folder": "shx mkdir -p dist/ && shx cp src/*.* dist/ && shx cp -r src/static dist/ && shx cp -r src/js dist/",
-    "less": "lessc --autoprefix --source-map src/less/app.less dist/css/app.css",
-    "postless": "cleancss --source-map dist/css/app.css -o dist/css/app.min.css",
+    "prefolder": "shx rm -rf docs/",
+    "folder": "shx mkdir -p docs/ && shx cp src/*.* docs/ && shx cp -r src/static docs/ && shx cp -r src/js docs/",
+    "less": "lessc --autoprefix --source-map src/less/app.less docs/css/app.css",
+    "postless": "cleancss --source-map docs/css/app.css -o docs/css/app.min.css",
     "build": "npm run folder -s && npm run less -s",
-    "start": "http-server ./ -o -c0"
+    "start": "http-server ./docs -o -c0"
   },
   "repository": {
     "type": "git",
